@@ -1,0 +1,44 @@
+{
+  "Cooking":           [ "olive oil", "sunflower oil", "vegetable oil", "beef stock", "chicken stock", "vegetable stock" ],
+  "Condiments":        [ "redcurrant jelly", "tomato sauce", "brown sauce", "mustard", "salt", "black pepper", "vinegar" ]
+  "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder" ],
+  "Fresh herbs":       [ "parsley", "coriander", "thyme", "mint", "sage", "rosemary", "chilli", "tarragon", "basil", "dill" ],
+
+  "Jams":              [ "honey", "jam", "maple syrup" ],
+  "Pickles":           [ "pickled walnuts" ],
+
+  "Frozen":            [ "frozen", "ice cream", "peas" ],
+
+  "Dairy":             [ "milk", "butter", "eggs", "yoghurt", "cream", "creme fraiche", "pastry" ],
+  "Cheese":            [ "cheddar", "emmental", "parmesan", "gouda", "edam", "philadelphia", "mozzarella", "brie" ],
+
+  "Fruit":             [ "orange", "lemon", "lime", "apple", "pear", "grapes", "banana", "clementine" ],
+  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder" ],
+  "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness" ],
+  "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios" ],
+  "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle" ],
+
+  "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado" ],
+  "Canned vegatables": [ "black beans", "sweetcorn" ],
+  "Flavours":          [ "ginger", "garlic" ],
+  "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad" ],
+  "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers" ],
+
+  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork" ],
+  "Sausage":           [ "sausage", "chipolata" ],
+  "Sliced meats":      [ "ham", "prosciutto", "pancetta", "bacon" ],
+  "Fish":              [ "cod", "haddock", "prawns", "salmon" ],
+
+  "Beverages":         [ "tea", "coffee" ],
+
+  "Bread":             [ "bread", "panini", "bagel", "brioche" ],
+
+  "Home":              [ "toilet roll", "washing up liquid" ],
+  "Cat":               [ "cat food", "cat litter" ],
+
+  "Pharmacy":          [ "carex", "condoms" ],
+
+  "Cereal":            [ "dorset cereal", "porridge", "cereal bars" ],
+
+  "Sweets":            [ "chocolate" ]
+}
