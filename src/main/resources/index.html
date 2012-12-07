@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Page</title>
+    <title>Shopping List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -16,16 +16,14 @@
       </div>
 
       <div data-role="content">
-        <div class="ui-grid-a">
-          <div class="ui-block-a">
-            <h1>Recipe List</h1>
-            <textarea name="recipelist" id="recipe-list"></textarea>
-            <a class="generate" data-source="recipe-list" data-target="shopping-list" data-role="button">Generate shopping list</a>
-          </div>
-          <div class="ui-block-b">
-            <h1>Shopping List</h1>
-            <div id="shopping-list" data-role="collapsible-set"></div>
-          </div>
+        <div>
+          <h1>Shopping List</h1>
+          <div id="shopping-list" data-role="collapsible-set"></div>
+        </div>
+        <div>
+          <h1>Recipe List</h1>
+          <textarea name="recipelist" id="recipe-list"></textarea>
+          <a class="generate" data-source="recipe-list" data-target="shopping-list" data-role="button">Generate shopping list</a>
         </div>
       </div>
     </div>

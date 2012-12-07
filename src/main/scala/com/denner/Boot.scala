@@ -17,7 +17,7 @@ object Boot extends App {
     name = "http-server"
   )
 
-  httpServer ! HttpServer.Bind("localhost", 8080)
+  httpServer ! HttpServer.Bind("0.0.0.0", util.Properties.envOrElse("PORT", "8080").toInt)
 
   system.registerOnTermination {
     ioBridge.stop()
