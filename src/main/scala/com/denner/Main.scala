@@ -40,7 +40,11 @@ trait MainService extends spray.routing.HttpService {
           }
         }
       }
-    }
+    } ~
+    path("js"        / Rest) { path => get { getFromResource("js/" + path) } } ~
+    path("css"       / Rest) { path => get { getFromResource("css/" + path) } } ~
+    path("img"       / Rest) { path => get { getFromResource("image/" + path) } } ~
+    path("templates" / Rest) { path => get { getFromResource("templates/" + path) } }
   }
 
   private[this] lazy val measuring    = applySemantics(Measurer.all)(_)

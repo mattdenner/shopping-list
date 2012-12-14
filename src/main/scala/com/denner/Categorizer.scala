@@ -15,7 +15,7 @@ object Categorizer {
     private[this] val Matcher               = ("""\b(""" + items.mkString("(?:es|s)?|") + """(?:es|s)?)\b""").r
 
     def apply(item: Item)       = Item(item.line, Some(category), item.amount)
-    def isDefinedAt(item: Item) = !Matcher.findFirstIn(item.line).isEmpty
+    def isDefinedAt(item: Item) = !Matcher.findFirstIn(item.line.toLowerCase).isEmpty
   }
 
   type CategoryEntriesPair = (String,List[String])

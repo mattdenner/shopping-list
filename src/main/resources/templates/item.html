@@ -1,0 +1,27 @@
+<tr>
+  <th colspan="3">{{name}}</th>
+</tr>
+
+{{#items}}
+<tr class="item" data-item="{{index}}" data-state="needed">
+  <td>
+    <div class="action btn-group">
+      <a class="btn btn-mini btn-success" data-action="buy">Buy</a>
+      <button class="btn btn-mini btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a data-action="buy">Buy</a></li>
+        <li><a data-action="have">Have</a></li>
+        <li><a data-action="unavailable">Unavailable</a></li>
+        <li><a data-action="return">Return</a></li>
+      </ul>
+    </div>
+  </td>
+  <td>
+    {{#amount}}<span class="quantity">{{quantity}}{{units}}</span> {{/amount}}
+    {{^amount}}&nbsp;{{/amount}}
+  </td>
+  <td>
+    {{line}}
+  </td>
+</tr>
+{{/items}}

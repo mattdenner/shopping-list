@@ -1,6 +1,7 @@
 {
   "Cooking":           [ "olive oil", "sunflower oil", "vegetable oil", "beef stock", "chicken stock", "vegetable stock" ],
-  "Condiments":        [ "redcurrant jelly", "tomato sauce", "brown sauce", "mustard", "salt", "black pepper", "vinegar" ]
+  "Condiments":        [ "redcurrant jelly", "salt", "black pepper", "vinegar" ],
+  "Table sauces":      [ "tomato sauce", "brown sauce", "mustard" ],
   "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder" ],
   "Fresh herbs":       [ "parsley", "coriander", "thyme", "mint", "sage", "rosemary", "chilli", "tarragon", "basil", "dill" ],
 
@@ -9,34 +10,38 @@
 
   "Frozen":            [ "frozen", "ice cream", "peas" ],
 
-  "Dairy":             [ "milk", "butter", "eggs", "yoghurt", "cream", "creme fraiche", "pastry" ],
-  "Cheese":            [ "cheddar", "emmental", "parmesan", "gouda", "edam", "philadelphia", "mozzarella", "brie" ],
+  "Butter & spreads":  [ "butter", "pastry" ],
+  "Fresh milk":        [ "milk" ],
+  "Eggs":              [ "eggs" ],
+  "Yoghurts":          [ "yoghurt", "cream", "creme fraiche" ],
+  "Cheese":            [ "cheddar", "emmental", "parmesan", "gouda", "edam", "philadelphia", "mozzarella", "brie", "caerphilly", "ricotta" ],
 
   "Fruit":             [ "orange", "lemon", "lime", "apple", "pear", "grapes", "banana", "clementine" ],
   "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder" ],
-  "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness" ],
-  "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios" ],
+  "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness", "cider" ],
+  "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios", "poppy seeds", "pine nuts", "coconut" ],
   "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle" ],
 
-  "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado" ],
-  "Canned vegatables": [ "black beans", "sweetcorn" ],
+  "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado", "spinach", "aubergine", "butternut squash", "green beans" ],
+  "Canned vegatables": [ "black beans", "sweetcorn", "kidney beans", "chopped tomatoes" ],
   "Flavours":          [ "ginger", "garlic" ],
   "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad" ],
-  "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers" ],
+  "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers", "green beans" ],
 
-  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork" ],
+  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison" ],
   "Sausage":           [ "sausage", "chipolata" ],
-  "Sliced meats":      [ "ham", "prosciutto", "pancetta", "bacon" ],
+  "Sliced meats":      [ "ham", "bacon" ],
+  "Cooked meats":      [ "prosciutto", "pancetta" ],
   "Fish":              [ "cod", "haddock", "prawns", "salmon" ],
 
-  "Beverages":         [ "tea", "coffee" ],
+  "Tea & coffe":       [ "tea", "coffee", "cocoa powder", "drinking chocolate" ],
 
   "Bread":             [ "bread", "panini", "bagel", "brioche" ],
 
-  "Home":              [ "toilet roll", "washing up liquid" ],
+  "Home":              [ "toilet roll", "washing up liquid", "toilet cleaner", "bleach" ],
   "Cat":               [ "cat food", "cat litter" ],
 
-  "Pharmacy":          [ "carex", "condoms" ],
+  "Pharmacy":          [ "carex", "condoms", "omega", "tissues", "toothpaste" ],
 
   "Cereal":            [ "dorset cereal", "porridge", "cereal bars" ],
 

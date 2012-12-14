@@ -15,10 +15,10 @@ class CategorizerSuite extends FunSuite {
     )
 
     val expected = List(
-      Item("beef stock",     Some(Category("cooking"))),
-      Item("chicken stock",  Some(Category("cooking"))),
-      Item("beef steak",     Some(Category("meat"))),
-      Item("chicken breast", Some(Category("meat")))
+      Item("beef stock",     Some(Category("Cooking"))),
+      Item("chicken stock",  Some(Category("Cooking"))),
+      Item("beef steak",     Some(Category("Meat"))),
+      Item("chicken breast", Some(Category("Meat")))
     )
 
     assert(applySemantics(all)(input.toStream).toList === expected)
@@ -44,21 +44,21 @@ class CategorizerSuite extends FunSuite {
     )
 
     val expected = List(
-      Item("mixed dried fruit",           Some(Category("baking"))),
-      Item("orange, zest and juice",      Some(Category("fruit"))),
-      Item("lemon, zest and juice",       Some(Category("fruit"))),
-      Item("brandy,Sherry,whisky or rum", Some(Category("alcohol"))),
-      Item("pack butter, softened",       Some(Category("dairy"))),
-      Item("light soft brown sugar",      Some(Category("baking"))),
-      Item("plain flour",                 Some(Category("baking"))),
-      Item("ground almonds",              Some(Category("nuts"))),
-      Item("baking powder",               Some(Category("baking"))),
-      Item("mixed spice",                 Some(Category("herbs & spices"))),
-      Item("ground cinnamon",             Some(Category("herbs & spices"))),
-      Item("ground cloves",               Some(Category("herbs & spices"))),
-      Item("flaked almonds",              Some(Category("nuts"))),
-      Item("eggs",                        Some(Category("dairy"))),
-      Item("vanilla extract",             Some(Category("baking")))
+      Item("mixed dried fruit",           Some(Category("Baking"))),
+      Item("orange, zest and juice",      Some(Category("Fruit"))),
+      Item("lemon, zest and juice",       Some(Category("Fruit"))),
+      Item("brandy,Sherry,whisky or rum", Some(Category("Alcohol"))),
+      Item("pack butter, softened",       Some(Category("Butter & spreads"))),
+      Item("light soft brown sugar",      Some(Category("Baking"))),
+      Item("plain flour",                 Some(Category("Baking"))),
+      Item("ground almonds",              Some(Category("Nuts"))),
+      Item("baking powder",               Some(Category("Baking"))),
+      Item("mixed spice",                 Some(Category("Herbs & spices"))),
+      Item("ground cinnamon",             Some(Category("Herbs & spices"))),
+      Item("ground cloves",               Some(Category("Herbs & spices"))),
+      Item("flaked almonds",              Some(Category("Nuts"))),
+      Item("eggs",                        Some(Category("Eggs"))),
+      Item("vanilla extract",             Some(Category("Baking")))
     )
 
     assert(applySemantics(all)(input.toStream).toList === expected)
