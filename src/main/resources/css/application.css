@@ -1,3 +1,7 @@
+/* Ensure that we have paged behaviour */
+body > section { display: none; }
+body > section.active { display: block; }
+
 /* Ensure that the groups in the shopping list are formatted alright! */
 .item tr td { min-width: 90px; max-width: 90px; overflow: hidden; }
 .item tr td:last-child { min-width: 200px; max-width: 100%; }

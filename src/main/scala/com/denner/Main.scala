@@ -36,20 +36,25 @@ trait MainService extends spray.routing.HttpService {
       post {
         entity(as[List[String]]) { parsedRecipe =>
           produce(instanceOf[Seq[Item]]) {
-            serialize => _ => serialize(categorize(parsedRecipe.toStream))
+            serialize => _ => serialize(categorizeRecipe(parsedRecipe))
           }
         }
       }
-    } ~
+    } ~ /* What follows is the handling of resources */
     path("js"        / Rest) { path => get { getFromResource("js/" + path) } } ~
     path("css"       / Rest) { path => get { getFromResource("css/" + path) } } ~
     path("img"       / Rest) { path => get { getFromResource("image/" + path) } } ~
     path("templates" / Rest) { path => get { getFromResource("templates/" + path) } }
   }
 
-  private[this] lazy val measuring    = applySemantics(Measurer.all)(_)
-  private[this] lazy val categorising = applySemantics(Categorizer.all)(_)
+  private[this] lazy val measure    = applySemantics(Measurer.all)(_)
+  private[this] lazy val categorize = applySemantics(Categorizer.all)(_)
 
-  private[this] def categorize(stream: Stream[String]): Stream[Item] =
-    categorising(measuring(stream.map(Item(_))))
+
+  private[this] def categorizeRecipe(lines: Seq[String]): Seq[Item] =
+    for {
+      item        <- lines.map(Item(_));
+      measured    <- measure(item);
+      categorized <- categorize(measured)
+    } yield categorized
 }

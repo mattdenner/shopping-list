@@ -6,19 +6,25 @@
     <link href="/css/application.css" rel="stylesheet" media="screen">
   </head>
 
-  <body>
-    <section class="container-fluid">
-      <h1>Shopping List</h1>
-
-      <table id="shopping-list" class="table table-bordered table-condensed">
-      </table>
-    </section>
-    <section class="container-fluid">
-      <h1>Recipe List</h1>
+  <body class="container-fluid">
+    <header class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="#">Shopping List</a>
+        <ul class="nav">
+          <li class="active"><a href="#" data-page="recipes">Recipes</a></li>
+          <li><a href="#" data-page="shopping">Shopping</a></li>
+        </ul>
+      </div>
+    </header>
+    <section id="recipes" class="page">
       <div class="row">
         <textarea name="recipelist" id="recipe-list"></textarea>
         <button class="generate btn btn-primary" data-source="recipe-list" data-target="shopping-list">Generate shopping list</button>
       </div>
+    </section>
+    <section id="shopping" class="page">
+      <table id="shopping-list" class="table table-bordered table-condensed">
+      </table>
     </section>
 
     <script data-main="js/application" src="js/require-2.1.2.js"></script>

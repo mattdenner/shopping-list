@@ -53,15 +53,9 @@ object Items {
   }
 
   /**
-   * Passes each of the input values from the stream through the sequence of partial functions,
+   * Passes each of the input values from the sequence through the sequence of partial functions,
    * returning either the output value from the first fitting function, or the unknown value.
    */
-  def applySemantics(applicators: Seq[PartialFunction[Item,Item]])(stream: Stream[Item]): Stream[Item] = {
-    def mapInput(input: Item) =
-      applicators.collectFirst { case a if a.isDefinedAt(input) => a(input) } match {
-        case Some(value) => value
-        case None        => input
-      }
-    stream.map(mapInput)
-  }
+  def applySemantics(applicators: Seq[PartialFunction[Item,Item]])(item: Item): Option[Item] =
+    applicators.collectFirst { case a if a.isDefinedAt(item) => a(item) }.orElse(Some(item))
 }
