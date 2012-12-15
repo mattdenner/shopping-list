@@ -3,8 +3,7 @@ body > section { display: none; }
 body > section.active { display: block; }
 
 /* Ensure that the groups in the shopping list are formatted alright! */
-.item tr td { min-width: 90px; max-width: 90px; overflow: hidden; }
-.item tr td:last-child { min-width: 200px; max-width: 100%; }
+.item td:first-child, .item td:nth-child(2) { width: 90px; }
 .item .action .btn:first-child { width: 60px; }
 
 #recipe-list { display: block; width: 100%; height: 100px; }
