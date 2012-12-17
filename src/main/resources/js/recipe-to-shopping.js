@@ -57,7 +57,7 @@ define(
       // Some functions to deal with changes in state.
       var storeStateChange = function(event, from, to) { container.attr("data-state", to); }
       var adjustCounter = function(name, adjustment) {
-        var badge = container.prev().find(".badges ."+name);
+        var badge = container.prevAll(".group").first().find(".badges ."+name);
         badge.text(adjustment(parseInt(badge.text())));
       };
       var modifyCounters = function(event, from, to) {
