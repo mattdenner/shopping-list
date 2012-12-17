@@ -1,7 +1,11 @@
 define(
   'recipe-to-shopping',
-  [ "jquery", "mustache-0.7.1", "statemachine.min", "text!/templates/item.html", "underscore-1.4.3" ],
-  function(jQuery, Mustache, Statemachine, groupTemplate) {
+  [
+    "jquery", "mustache-0.7.1", "statemachine.min",
+    "text!/templates/item.html", "text!/templates/alert.html",
+    "underscore-1.4.3"
+  ],
+  function(jQuery, Mustache, Statemachine, groupTemplate, alertTemplate) {
     return { attach: create };
 
     function create(button, source, target) {
@@ -25,6 +29,8 @@ define(
             target.empty();
             if (unknown.length > 0) { target.append(groupRenderer(unknown, "Unknown")); }
             target.append(_.map(_.omit(groups, "Unknown"), groupRenderer));
+
+            source.parent().before(Mustache.render(alertTemplate));
           }
         });
       });
