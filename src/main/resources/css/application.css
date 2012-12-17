@@ -3,7 +3,8 @@ body > section { display: none; }
 body > section.active { display: block; }
 
 /* Ensure that the groups in the shopping list are formatted alright! */
-#shopping-list th > * { display: inline-block; }
+#shopping-list .group td > * { display: inline-block; }
+#shopping-list .group td { font-weight: bold; }
 #shopping-list .item td:first-child, .item td:nth-child(2) { width: 90px; }
 #shopping-list .item .action .btn:first-child { width: 60px; }
 #shopping-list .badges { float: right; margin: 0; }

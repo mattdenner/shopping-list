@@ -15,7 +15,6 @@ define(
           },
 
           data: source.val(),
-
           success: function(data) {
             var groups = _.groupBy(
               _.map(data, function(value, index) { return _.defaults(value, { id: index }); }),
@@ -31,7 +30,7 @@ define(
       });
     }
 
-    function attach(container, button, targets) {
+    function attachItemStatemachine(container, button, targets) {
       // Small helper for generating callbacks in the statemachine that will deal with changing
       // the button
       var switchButton = function(name) {
@@ -41,28 +40,6 @@ define(
       };
       var switchAction = function(text, action) {
         return function(event, from, to) { button.first().text(text).attr('data-action', action); };
-      };
-      var switchRow = function(state) {
-        return function(event, from, to) { container.addClass(state); };
-      };
-      var resetRow = function(state) {
-        return function(event, from, to) { container.removeClass(state); };
-      };
-      var callbacks = function(callbacksToExecute) {
-        return function(event, from, to) {
-          _.each(callbacksToExecute, function(callback) { callback(event, from, to); });
-        };
-      }
-
-      // Some functions to deal with changes in state.
-      var storeStateChange = function(event, from, to) { container.attr("data-state", to); }
-      var adjustCounter = function(name, adjustment) {
-        var badge = container.prevAll(".group").first().find(".badges ."+name);
-        badge.text(adjustment(parseInt(badge.text())));
-      };
-      var modifyCounters = function(event, from, to) {
-        adjustCounter(from, function(count) { return count-1; });
-        adjustCounter(to,   function(count) { return count+1; });
       };
 
       // All items behave like a statemachine, in that they are initially "needed", and can
@@ -81,34 +58,101 @@ define(
         callbacks: {
           // The button state changes based on the transitions that occur.
           onenterneeded:      callbacks([ switchButton("success"), switchAction("Buy", "buy") ]),
-          onenterbought:      callbacks([ switchButton("danger"),  switchAction("Return", "return"), switchRow("success") ]),
-          onleavebought:      callbacks([ resetRow("success") ]),
+          onenterbought:      callbacks([ switchButton("danger"),  switchAction("Return", "return"), switchContainer(container, "success") ]),
+          onleavebought:      callbacks([ resetContainer(container, "success") ]),
           onenterunavailable: callbacks([ switchButton("warning"), switchAction("Buy", "buy") ]),
-          onenterhave:        callbacks([ switchButton("inverse"), switchAction("Mistake!", "need"), switchRow("success") ]),
-          onleavehave:        callbacks([ resetRow("success") ]),
+          onenterhave:        callbacks([ switchButton("inverse"), switchAction("Mistake!", "need"), switchContainer(container, "success") ]),
+          onleavehave:        callbacks([ resetContainer(container, "success") ]),
 
           // Regardless of the transition we always set the appropriate state on the item.
           // NOTE: using 'callbacks' here to make it easier to extend should I need to!
           onchangestate: callbacks([
-            storeStateChange,
-            modifyCounters
+            function(event, from, to) { container.attr("data-state", to); }
           ])
         }
       });
       targets.click(function() {
         statemachine[jQuery(this).attr('data-action')]();
       });
-    };
+      return statemachine;
+    }
+
+    function attachGroupStatemachine(container) {
+      var adjustCounter = function(name, adjustment) {
+        var badge = container.find(".badges ."+name);
+        var count = adjustment(parseInt(badge.text()));
+        badge.text(count);
+        return count;
+      };
+
+      var checkCounter = function(name) {
+        return parseInt(container.find(".badges ."+name).text());
+      };
+
+      var countOfItemsInGroup = 0;
+      var hasCompleted = function() {
+        return _.reduce(
+          _.map(["bought","have"],checkCounter),
+          function(memo, count) { return memo+count; },
+          0
+        ) == countOfItemsInGroup;
+      };
+
+      var statemachine = Statemachine.create({
+        initial: 'incomplete',
+        events: [
+          { name: 'completed',  from: 'incomplete',               to: 'complete' },
+          { name: 'incomplete', from: ['incomplete', 'complete'], to: 'incomplete' }
+        ],
+        callbacks: {
+          onentercomplete: callbacks([ switchContainer(container, "success") ]),
+          onleavecomplete: callbacks([ resetContainer(container) ])
+        }
+      });
+
+      return _.defaults(statemachine, {
+        itemChangeStateHandler: function(event, from, to) {
+          adjustCounter(from, function(count) { return count-1; });
+          adjustCounter(to,   function(count) { return count+1; });
+          statemachine[hasCompleted() ? 'completed' : 'incomplete']();
+        },
+        connect: function(statemachine) {
+          statemachine.onchangestate.push(this.itemChangeStateHandler);
+          adjustCounter("needed", function() { return ++countOfItemsInGroup; });
+        }
+      });
+    }
 
     // Renders an individual group using the mustache template, ensuring that each item in the
     // group has a statemachine attached to it.
     function groupRenderer(items, groupName) {
       var html = jQuery(Mustache.render(groupTemplate, { name: groupName, items: items }));
+
+      var groupStatemachine = attachGroupStatemachine(html.first(".group"));
       _.each(html.filter(".item"), function(i) {
         var item = jQuery(i);
-        attach(item, item.find(".btn"), item.find(".action a"));
+        groupStatemachine.connect(
+          attachItemStatemachine(item, item.find(".btn"), item.find(".action a"))
+        );
       });
       return html;
+    }
+
+    // Functions to help with dealing with the statemachine and the state of the HTML
+    function callbacks(callbacksToExecute) {
+      return _.defaults(function(event, from, to) {
+        _.each(callbacksToExecute, function(callback) { callback(event, from, to); });
+      }, {
+        push: function(callback) {
+          callbacksToExecute.push(callback);
+        }
+      });
+    }
+    function switchContainer(container, state) {
+      return function(event, from, to) { container.addClass(state); };
+    }
+    function resetContainer(container, state) {
+      return function(event, from, to) { container.removeClass(state); };
     }
   }
 )

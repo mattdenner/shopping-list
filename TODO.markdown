@@ -1,8 +1,6 @@
 # TODO
 ## High priority
 * Add alert to indicate that the shopping list has been updated
-* Refactor group behaviour into statemachine
-* Grey out completed sections
 * Multiple open, not accordion
 
 ## Medium priority
