@@ -54,6 +54,17 @@ define(
         };
       }
 
+      // Some functions to deal with changes in state.
+      var storeStateChange = function(event, from, to) { container.attr("data-state", to); }
+      var adjustCounter = function(name, adjustment) {
+        var badge = container.prev().find(".badges ."+name);
+        badge.text(adjustment(parseInt(badge.text())));
+      };
+      var modifyCounters = function(event, from, to) {
+        adjustCounter(from, function(count) { return count-1; });
+        adjustCounter(to,   function(count) { return count+1; });
+      };
+
       // All items behave like a statemachine, in that they are initially "needed", and can
       // then be "bought", already "have", or are "unavailable" when shopping.  When someone
       // clicks on an action button it triggers an event on the FSM which causes something
@@ -79,7 +90,8 @@ define(
           // Regardless of the transition we always set the appropriate state on the item.
           // NOTE: using 'callbacks' here to make it easier to extend should I need to!
           onchangestate: callbacks([
-            function(event, from, to) { container.attr("data-state", to); }
+            storeStateChange,
+            modifyCounters
           ])
         }
       });
