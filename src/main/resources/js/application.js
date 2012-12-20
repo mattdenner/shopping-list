@@ -1,7 +1,8 @@
 requirejs.config({
   paths: {
-    "jquery":    "http://code.jquery.com/jquery-latest",
-    "bootstrap": "bootstrap.min"
+    "jquery":     "http://code.jquery.com/jquery-latest",
+    "bootstrap":  "bootstrap.min",
+    "mustache":   "mustache-0.7.1"
   },
   shim: {
     "bootstrap": { deps: ["jquery"], exports: "jquery" }

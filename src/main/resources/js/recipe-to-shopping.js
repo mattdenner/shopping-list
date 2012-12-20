@@ -1,12 +1,15 @@
 define(
   'recipe-to-shopping',
   [
-    "jquery", "mustache-0.7.1", "statemachine.min",
-    "text!/templates/item.html", "text!/templates/alert.html",
-    "underscore-1.4.3"
+    "jquery", "statemachine.min",
+    "recipe-templates"
   ],
-  function(jQuery, Mustache, Statemachine, groupTemplate, alertTemplate) {
+  function(jQuery, Statemachine, templates) {
     return { attach: create };
+
+    function groupRenderer(items, groupName) {
+      return templates.group(attachGroupStatemachine, attachItemStatemachine, items, groupName);
+    }
 
     function create(button, source, target) {
       button.click(function() {
@@ -19,7 +22,19 @@ define(
           },
 
           data: source.val(),
+
+          beforeSend: function() {
+            source.parent().before(templates.progress);
+            templates.progress.nudge(10);
+          },
+          complete: function() {
+            templates.progress.nudge(100);
+            templates.progress.remove();
+          },
+
           success: function(data) {
+            templates.progress.nudge(60);
+
             var groups = _.groupBy(
               _.map(data, function(value, index) { return _.defaults(value, { id: index }); }),
               function(value) { return value.category || "Unknown"; }
@@ -30,7 +45,7 @@ define(
             if (unknown.length > 0) { target.append(groupRenderer(unknown, "Unknown")); }
             target.append(_.map(_.omit(groups, "Unknown"), groupRenderer));
 
-            source.parent().before(Mustache.render(alertTemplate));
+            source.parent().before(templates.alert);
           }
         });
       });
@@ -127,21 +142,6 @@ define(
           adjustCounter("needed", function() { return ++countOfItemsInGroup; });
         }
       });
-    }
-
-    // Renders an individual group using the mustache template, ensuring that each item in the
-    // group has a statemachine attached to it.
-    function groupRenderer(items, groupName) {
-      var html = jQuery(Mustache.render(groupTemplate, { name: groupName, items: items }));
-
-      var groupStatemachine = attachGroupStatemachine(html.first(".group"));
-      _.each(html.filter(".item"), function(i) {
-        var item = jQuery(i);
-        groupStatemachine.connect(
-          attachItemStatemachine(item, item.find(".btn"), item.find(".action a"))
-        );
-      });
-      return html;
     }
 
     // Functions to help with dealing with the statemachine and the state of the HTML
