@@ -36,7 +36,7 @@ trait MainService extends spray.routing.HttpService {
       post {
         entity(as[List[String]]) { parsedRecipe =>
           produce(instanceOf[Seq[Item]]) {
-            serialize => _ => serialize(categorizeRecipe(parsedRecipe))
+            serialize => _ => serialize(categorizeRecipe(parsedRecipe).sortBy(_.line.toLowerCase))
           }
         }
       }
@@ -49,7 +49,6 @@ trait MainService extends spray.routing.HttpService {
 
   private[this] lazy val measure    = applySemantics(Measurer.all)(_)
   private[this] lazy val categorize = applySemantics(Categorizer.all)(_)
-
 
   private[this] def categorizeRecipe(lines: Seq[String]): Seq[Item] =
     for {
