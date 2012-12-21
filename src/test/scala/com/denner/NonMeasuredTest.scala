@@ -10,9 +10,9 @@ class NonMeasuredTest extends org.scalatest.FunSuite {
 
     types.flatMap(
       (t) => fruit.map(
-        (f) => Item(t + " of 1 " + f) -> Item(f + ", " + t, None, Some(Measure(1,NonUnits)))
+        (f) => Item(t + " of 1 " + f) -> Item(f + ", " + t, None, Some(Measure(1,None,NonUnits)))
       ) ++ fruit.map(
-        (f) => Item(t + " 1 " + f) -> Item(f + ", " + t, None, Some(Measure(1,NonUnits)))
+        (f) => Item(t + " 1 " + f) -> Item(f + ", " + t, None, Some(Measure(1,None,NonUnits)))
       )
     ).foreach((e) => {
       assert(CitrusMeasurer.isDefinedAt(e._1))
@@ -22,6 +22,6 @@ class NonMeasuredTest extends org.scalatest.FunSuite {
 
   test("CountedMeasures") {
     assert(CountedMeasurer.isDefinedAt(Item("1 football")))
-    assert(CountedMeasurer(Item("1 football")) === Item("football", None, Some(Measure(1,NonUnits))))
+    assert(CountedMeasurer(Item("1 football")) === Item("football", None, Some(Measure(1,None,NonUnits))))
   }
 }

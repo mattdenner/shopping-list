@@ -21,8 +21,13 @@ object Items {
   }
 
   // Things need quantity, but those amounts have units so that you can't miss compare.
-  case class Measure(quantity: Double, units: Units) {
-    override def toString = quantity + units.toString
+  case class Measure(minimum: Double, maximum: Option[Double], units: Units) {
+    override def toString = minimum + maximumString + units.toString
+
+    private[this] def maximumString = maximum match {
+      case Some(value) => "-" + value
+      case None        => ""
+    }
   }
   type Measured = Option[Measure]
 
@@ -48,7 +53,7 @@ object Items {
       def read(value: JsValue) = value match { case JsString(name) => Category(name) }
     }
 
-    implicit val MeasureFormat  = jsonFormat2(Measure)
+    implicit val MeasureFormat  = jsonFormat3(Measure)
     implicit val ItemFormat     = jsonFormat3(Item)
   }
 

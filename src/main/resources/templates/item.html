@@ -25,7 +25,7 @@
     </div>
   </td>
   <td>
-    {{#amount}}<span class="quantity">{{quantity}}{{units}}</span> {{/amount}}
+    {{#amount}}<span class="quantity">{{minimum}}{{#maximum}}-{{maximum}}{{/maximum}}</span><span class="units">{{units}}</span> {{/amount}}
     {{^amount}}&nbsp;{{/amount}}
   </td>
   <td>

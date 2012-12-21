@@ -14,12 +14,23 @@ class UnitMeasuresTest extends org.scalatest.FunSuite {
       "1mg foo"
     ).map(Item(_))
 
-    val amounts = Map[String,Double]("1/2" -> 0.5, "1" -> 1, "1 1/2" -> 1.5, "100" -> 100)
+    val amounts = Map[String,(Double,Option[Double])](
+      "1/2"     -> (0.5, None),
+      "1"       -> (1,   None),
+      "1 1/2"   -> (1.5, None),
+      "100"     -> (100, None),
+      "1-2"     -> (1,   Some(2)),
+      "1 1/2-2" -> (1.5, Some(2))
+    )
 
     def check() = {
       amounts.flatMap(
         (a) => units.map(
-          (u) => Item(a._1 + u + " foo") -> Item("foo", None, Some(Measure(measurer.units.adjustment(u)(a._2), measurer.units)))
+          (u) => Item(a._1 + u + " foo") -> Item(
+            "foo",
+            None,
+            Some(Measure(measurer.units.adjustment(u)(a._2._1), a._2._2, measurer.units))
+          )
         )
       ).foreach((e) => {
         assert(measurer.isDefinedAt(e._1))

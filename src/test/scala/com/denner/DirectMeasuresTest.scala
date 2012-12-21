@@ -19,7 +19,7 @@ class DirectMeasuresSuite extends org.scalatest.FunSuite {
     def check() = {
       amounts.flatMap(
         (a) => units.map(
-          (u) => Item(a._1 + u + " foo") -> Item("foo", None, Some(Measure(a._2, UnscalableUnits(u))))
+          (u) => Item(a._1 + u + " foo") -> Item("foo", None, Some(Measure(a._2, None, UnscalableUnits(u))))
         )
       ).foreach((e) => {
         assert(measurer.isDefinedAt(e._1))
@@ -42,7 +42,8 @@ class DirectMeasuresSuite extends org.scalatest.FunSuite {
 
   test("ArbitraryMeasures") {
     new MeasurerDefinition {
-      val units    = Seq("handful", "pinch", "dash")
+      override val amounts = Map[String,Double]("a" -> 1, "1/2" -> 0.5, "1" -> 1, "1 1/2" -> 1.5, "100" -> 100)
+      val units    = Seq("handful", "pinch", "dash", "bunch")
       val measurer = com.denner.Measurer.ArbitraryMeasures
 
       check()
