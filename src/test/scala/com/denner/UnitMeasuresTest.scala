@@ -29,7 +29,11 @@ class UnitMeasuresTest extends org.scalatest.FunSuite {
           (u) => Item(a._1 + u + " foo") -> Item(
             "foo",
             None,
-            Some(Measure(measurer.units.adjustment(u)(a._2._1), a._2._2, measurer.units))
+            Some(Measure(
+              measurer.units.adjustment(u)(a._2._1),
+              a._2._2.map(measurer.units.adjustment(u)),
+              measurer.units)
+            )
           )
         )
       ).foreach((e) => {

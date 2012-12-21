@@ -46,8 +46,10 @@ object Measurer {
   private[this] val NumericValue  = """\d+(?:\.\d+|/\d+|\s+\d/\d+)?"""
 
   case class UnitMeasures(units: ScalableUnits) extends SimpleRegexMeasures("("+NumericValue+")(?:-("+NumericValue+"))?", Seq(units.left, units.right)) {
-    def measureFor(minimum: Double, maximum: Option[Double], amountUnits: String) =
-      Measure(units.adjustment(amountUnits)(minimum), maximum, units)
+    def measureFor(minimum: Double, maximum: Option[Double], amountUnits: String) = {
+      val adjuster = units.adjustment(amountUnits)
+      Measure(adjuster(minimum), maximum.map(adjuster(_)), units)
+    }
   }
 
   case class DirectMeasures(units: Seq[UnscalableUnits]) extends SimpleRegexMeasures("(a|"+NumericValue+")", units.map(_.name)) {
