@@ -23,7 +23,7 @@
   "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness", "cider", "champagne" ],
   "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios", "poppy seeds", "pine nuts", "coconut", "mixed nuts" ],
   "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle" ],
-  "Pasta sauces":      [ "pasatta", "tomato purée" ],
+  "Pasta sauces":      [ "pasatta", "tomato puree" ],
 
   "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado", "spinach", "aubergine", "butternut squash", "green beans" ],
   "Canned vegatables": [ "black beans", "sweetcorn", "kidney beans", "chopped tomatoes", "pineapple chunks" ],
