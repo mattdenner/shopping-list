@@ -12,7 +12,7 @@ abstract class Measurer extends PartialFunction[Item,Item] {
 
 object Measurer {
   abstract class SimpleRegexMeasures(measureNames: Seq[String]) extends Measurer {
-    lazy val Matcher = ("""^(\d+(?:\.\d+|/\d+|\s+\d/\d+)?)\s*(""" + measureNames.mkString("|") + """)\s+(.+)$""").r
+    lazy val Matcher = ("""^(\d+(?:\.\d+|/\d+|\s+\d/\d+)?)\s*(""" + measureNames.mkString("|") + """)(?:/[^\s]+)?\s+(.+)$""").r
 
     def apply(item: Item) = item.line match {
       case Matcher(amount, units, short) => Item(short, item.category, Some(measureFor(convertAmount(amount), units)))
