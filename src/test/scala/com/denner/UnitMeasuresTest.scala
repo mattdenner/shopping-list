@@ -2,6 +2,8 @@ package com.denner
 
 class UnitMeasuresTest extends org.scalatest.FunSuite {
   import Items._
+  import scalaz._
+  import Scalaz._
 
   abstract class MeasurerDefinition {
     val measurer: Measurer.UnitMeasures
@@ -93,5 +95,24 @@ class UnitMeasuresTest extends org.scalatest.FunSuite {
 
       check()
     }
+  }
+
+  test("addition") {
+    assert(Measure(0, None, NonUnits) === (Measure(0, None, NonUnits) |+| Measure(0, None, NonUnits)))
+    assert(Measure(1, None, NonUnits) === (Measure(1, None, NonUnits) |+| Measure(0, None, NonUnits)))
+    assert(Measure(1, None, NonUnits) === (Measure(0, None, NonUnits) |+| Measure(1, None, NonUnits)))
+    assert(Measure(2, None, NonUnits) === (Measure(1, None, NonUnits) |+| Measure(1, None, NonUnits)))
+
+    assert(Measure(0, Some(1), NonUnits) === (Measure(0, Some(1), NonUnits) |+| Measure(0, None,    NonUnits)))
+    assert(Measure(0, Some(1), NonUnits) === (Measure(0, None,    NonUnits) |+| Measure(0, Some(1), NonUnits)))
+    assert(Measure(0, Some(2), NonUnits) === (Measure(0, Some(1), NonUnits) |+| Measure(0, Some(1), NonUnits)))
+    assert(Measure(2, Some(2), NonUnits) === (Measure(1, Some(1), NonUnits) |+| Measure(1, Some(1), NonUnits)))
+    assert(Measure(2, Some(3), NonUnits) === (Measure(1, Some(1), NonUnits) |+| Measure(2, Some(1), NonUnits)))
+
+    assert(Measure(2, None, UnscalableUnits("test")) === (Measure(1, None, UnscalableUnits("test")) |+| Measure(1, None, UnscalableUnits("test"))))
+    intercept[MatchError] { Measure(1, None, NonUnits) |+| Measure(1, None, UnscalableUnits("test")) }
+
+    assert(Measure(2, None, ScalableUnits("g", "kg", 1000)) === (Measure(1, None, ScalableUnits("g", "kg", 1000)) |+| Measure(1, None, ScalableUnits("g", "kg", 1000))))
+    intercept[MatchError] { Measure(1, None, ScalableUnits("g", "kg", 1000)) |+| Measure(1, None, ScalableUnits("oz", "lb", 1000)) }
   }
 }

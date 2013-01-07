@@ -18,8 +18,10 @@ libraryDependencies ++= Seq(
 scalacOptions := Seq("-Ydependent-method-types", "-unchecked", "-deprecation", "-encoding", "utf8")
 
 resolvers ++= Seq(
-  "spray repo" at "http://repo.spray.io/",
-  "typesafe repo" at "http://repo.typesafe.com/typesafe/releases/"
+  "spray repo"     at "http://repo.spray.io/",
+  "typesafe repo"  at "http://repo.typesafe.com/typesafe/releases/",
+  "scalaz repo"    at "http://scala-tools.org/repo-snapshots",
+  "shapeless repo" at "http://oss.sonatype.org/content/repositories/releases/"
 )
 
 libraryDependencies ++= Seq(
@@ -27,7 +29,9 @@ libraryDependencies ++= Seq(
   "io.spray"          %  "spray-can"     % "1.0-M5",
   "io.spray"          %  "spray-httpx"   % "1.0-M5",
   "com.typesafe.akka" %  "akka-actor"    % "2.0.3",
-  "io.spray"          %% "spray-json"    % "1.2.3"
+  "io.spray"          %% "spray-json"    % "1.2.3",
+  "org.scalaz"        %% "scalaz-core"   % "6.0.4",
+  "com.chuusai"       %% "shapeless"     % "1.2.3"
 )
 
 resolvers += Classpaths.typesafeResolver

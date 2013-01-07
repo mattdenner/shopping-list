@@ -7,6 +7,8 @@ class Main extends akka.actor.Actor with MainService {
 
 trait MainService extends spray.routing.HttpService {
   import com.denner.Items._
+  import scalaz._
+  import Scalaz._
 
   val routeForRequests = {
     import spray.http.HttpBody
@@ -36,7 +38,7 @@ trait MainService extends spray.routing.HttpService {
       post {
         entity(as[List[String]]) { parsedRecipe =>
           produce(instanceOf[Seq[Item]]) {
-            serialize => _ => serialize(categorizeRecipe(parsedRecipe).sortBy(_.line.toLowerCase))
+            serialize => _ => serialize(categorizeRecipe(parsedRecipe))
           }
         }
       }
@@ -50,10 +52,13 @@ trait MainService extends spray.routing.HttpService {
   private[this] lazy val measure    = applySemantics(Measurer.all)(_)
   private[this] lazy val categorize = applySemantics(Categorizer.all)(_)
 
-  private[this] def categorizeRecipe(lines: Seq[String]): Seq[Item] =
-    for {
+  private[this] def categorizeRecipe(lines: Seq[String]): Seq[Item] = {
+    val categorized = for {
       item        <- lines.map(Item(_));
       measured    <- measure(item);
       categorized <- categorize(measured)
     } yield categorized
+
+    categorized.groupBy(_.line.toLowerCase).values.toSeq.map(_.reduce(_ |+| _))
+  }
 }
