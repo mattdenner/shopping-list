@@ -23,5 +23,7 @@ class NonMeasuredTest extends org.scalatest.FunSuite {
   test("CountedMeasures") {
     assert(CountedMeasurer.isDefinedAt(Item("1 football")))
     assert(CountedMeasurer(Item("1 football")) === Item("football", None, Some(Measure(1,None,NonUnits))))
+    assert(CountedMeasurer.isDefinedAt(Item("1.5 football")))
+    assert(CountedMeasurer(Item("1.5 football")) === Item("football", None, Some(Measure(1.5,None,NonUnits))))
   }
 }

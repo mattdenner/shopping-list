@@ -11,7 +11,19 @@ abstract class Measurer extends PartialFunction[Item,Item] {
 }
 
 object Measurer {
-  abstract class SimpleRegexMeasures(prefixGroup: String, measureNames: Seq[String]) extends Measurer {
+  trait AmountHelper {
+    val DecimalAmount    = """^(\d+(?:\.\d+)?)$""".r
+    val FractionalAmount = """^((\d+)\s+)?(\d+)/(\d+)$""".r
+
+    def convertAmount(amountAsString: String): Option[Double] = amountAsString match {
+      case DecimalAmount(value)                                => Some(value.toDouble)
+      case FractionalAmount(_, null, numerator, denominator)   => Some(numerator.toDouble / denominator.toDouble)
+      case FractionalAmount(_, amount, numerator, denominator) => Some(amount.toDouble + (numerator.toDouble / denominator.toDouble))
+      case null                                                => None
+    }
+  }
+
+  abstract class SimpleRegexMeasures(prefixGroup: String, measureNames: Seq[String]) extends Measurer with AmountHelper {
     lazy val Matcher = ("""^""" + prefixGroup + """\s*(""" + measureNames.mkString("|") + """)(?:/[^\s]+)?\s+(.+)$""").r
 
     def apply(item: Item) = item.line match {
@@ -30,16 +42,6 @@ object Measurer {
     def isDefinedAt(item: Item) = !Matcher.findFirstIn(item.line).isEmpty
 
     def measureFor(minimum: Double, maximum: Option[Double], amountUnits: String): Measure
-
-    val DecimalAmount    = """^(\d+(?:\.\d+)?)$""".r
-    val FractionalAmount = """^((\d+)\s+)?(\d+)/(\d+)$""".r
-
-    def convertAmount(amountAsString: String): Option[Double] = amountAsString match {
-      case DecimalAmount(value)                                => Some(value.toDouble)
-      case FractionalAmount(_, null, numerator, denominator)   => Some(numerator.toDouble / denominator.toDouble)
-      case FractionalAmount(_, amount, numerator, denominator) => Some(amount.toDouble + (numerator.toDouble / denominator.toDouble))
-      case null                                                => None
-    }
   }
 
   // Regex for dealing with numeric values in strings
@@ -81,11 +83,11 @@ object Measurer {
     def isDefinedAt(item: Item) = !Matcher.findFirstIn(item.line).isEmpty
   }
 
-  val CountedMeasurer = new Measurer {
-    private[this] val Matcher = """^(\d+) (.+)$""".r
+  val CountedMeasurer = new Measurer with AmountHelper {
+    private[this] val Matcher = """^(\d+(?:\.\d+)?) (.+)$""".r
 
     def apply(item: Item) = item.line match {
-      case Matcher(amount, stuff) => Item(stuff, item.category, Some(Measure(amount.toDouble,None,NonUnits)))
+      case Matcher(amount, stuff) => Item(stuff, item.category, Some(Measure(convertAmount(amount).get,None,NonUnits)))
     }
 
     def isDefinedAt(item: Item) = !Matcher.findFirstIn(item.line).isEmpty
