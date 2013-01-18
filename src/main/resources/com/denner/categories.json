@@ -5,7 +5,7 @@
   "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder", "chilli flakes", "cayenne pepper", "sweet paprika", "chives" ],
   "Fresh herbs":       [ "parsley", "coriander", "thyme", "mint", "sage", "rosemary", "chilli", "tarragon", "basil", "dill", "bay", "oregano" ],
 
-  "Jams":              [ "honey", "jam", "maple syrup", "golden syrup", "treacle" ],
+  "Jams":              [ "honey", "jam", "maple syrup" ],
   "Pickles":           [ "pickled walnuts", "olives", "sundried tomatoes" ],
 
   "Frozen":            [ "frozen", "ice cream", "peas" ],
@@ -19,11 +19,11 @@
   "Fruit juice":       [ "orange juice", "apple juice", "fruit juice", "pomegranate juice" ],
 
   "Fruit":             [ "orange", "lemon", "lime", "apple", "pear", "grapes", "banana", "clementine", "pineapple", "tangerine", "pomegranate" ],
-  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda" ],
+  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda", "golden syrup", "treacle" ],
   "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness", "cider", "champagne" ],
   "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios", "poppy seeds", "pine nuts", "coconut", "mixed nuts" ],
   "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle" ],
-  "Rice":              [ "rice" ],
+  "Rice":              [ "rice", "polenta" ],
   "Pasta sauces":      [ "pasatta", "tomato puree" ],
   "Curry sauces":      [ "red thai curry paste", "green thai curry paste" ],
   "Table sauces":      [ "ketchup", "brown sauce", "worcestershire sauce" ],
