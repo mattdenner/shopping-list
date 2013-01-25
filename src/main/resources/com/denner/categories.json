@@ -13,28 +13,28 @@
   "Butter & spreads":  [ "butter", "pastry" ],
   "Fresh milk":        [ "milk" ],
   "Eggs":              [ "egg" ],
-  "Yoghurts":          [ "yoghurt", "cream", "creme fraiche", "buttermilk" ],
+  "Yoghurts":          [ "yoghurt", "yogurt", "cream", "creme fraiche", "buttermilk" ],
   "Cheese":            [ "cheddar", "emmental", "parmesan", "gouda", "edam", "philadelphia", "mozzarella", "brie", "caerphilly", "ricotta" ],
 
   "Fruit juice":       [ "orange juice", "apple juice", "fruit juice", "pomegranate juice" ],
 
   "Fruit":             [ "orange", "lemon", "lime", "apple", "pear", "grapes", "banana", "clementine", "pineapple", "tangerine", "pomegranate" ],
-  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda", "golden syrup", "treacle" ],
+  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda", "golden syrup", "treacle", "dried cranberries" ],
   "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness", "cider", "champagne" ],
   "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios", "poppy seeds", "pine nuts", "coconut", "mixed nuts" ],
-  "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle" ],
+  "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle", "macaroni" ],
   "Rice":              [ "rice", "polenta" ],
   "Pasta sauces":      [ "pasatta", "tomato puree" ],
   "Curry sauces":      [ "red thai curry paste", "green thai curry paste" ],
   "Table sauces":      [ "ketchup", "brown sauce", "worcestershire sauce" ],
 
-  "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado", "spinach", "aubergine", "butternut squash", "green beans" ],
+  "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado", "spinach", "aubergine", "butternut squash", "green beans", "cabbage" ],
   "Canned vegatables": [ "black beans", "sweetcorn", "kidney beans", "chopped tomatoes", "pineapple chunks" ],
   "Flavours":          [ "ginger", "garlic" ],
   "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad" ],
   "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers", "green beans" ],
 
-  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison", "minute steak" ],
+  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison", "minute steak", "duck" ],
   "Sausage":           [ "sausage", "chipolata" ],
   "Sliced meats":      [ "ham", "bacon" ],
   "Cooked meats":      [ "prosciutto", "pancetta" ],
@@ -45,9 +45,9 @@
   "Cakes":             [ "madeira cake", "fruit cake", "sponge cake" ],
   "Bread":             [ "bread", "panini", "bagel", "brioche" ],
 
-  "Cleaning":          [ "toilet roll", "washing up liquid", "toilet cleaner", "bleach" ],
+  "Cleaning":          [ "toilet roll", "washing up liquid", "toilet cleaner", "bleach", "glass cleaning spray" ],
   "Cat":               [ "cat food", "cat litter" ],
-  "Home":              [ "knife", "fork", "basin", "kettle" ],
+  "Home":              [ "knife", "fork", "basin", "kettle", "frying pan" ],
 
   "Pharmacy":          [ "carex", "condoms", "omega", "tissues", "toothpaste", "deodourant" ],
 
