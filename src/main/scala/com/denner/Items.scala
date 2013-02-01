@@ -50,6 +50,7 @@ object Items {
 
       right match {
         case Measure(_, _, units) if units == left.units => internalAdd(right)
+        case _ => throw new MatchError("Cannot match " + right + " == " + left)
       }
     }
   }
