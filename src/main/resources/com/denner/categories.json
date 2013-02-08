@@ -2,7 +2,7 @@
   "Cooking":           [ "olive oil", "sunflower oil", "vegetable oil", "beef stock", "chicken stock", "vegetable stock", "fish stock" ],
   "Condiments":        [ "redcurrant jelly", "salt", "black pepper", "black peppercorn", "vinegar" ],
   "Table sauces":      [ "tomato sauce", "brown sauce", "mustard" ],
-  "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder", "chilli flakes", "cayenne pepper", "sweet paprika", "chives", "all spice", "whole nutmeg", "whole cloves", "harissa", "capers" ],
+  "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder", "chilli flakes", "cayenne pepper", "sweet paprika", "chives", "all spice", "whole nutmeg", "whole cloves", "harissa", "capers", "paprika" ],
   "Fresh herbs":       [ "parsley", "coriander", "thyme", "mint", "sage", "rosemary", "chilli", "tarragon", "basil", "dill", "bay", "oregano" ],
 
   "Jams":              [ "honey", "jam", "maple syrup" ],
@@ -35,7 +35,7 @@
   "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad", "rocket" ],
   "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers", "green beans" ],
 
-  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison", "minute steak", "duck" ],
+  "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison", "minute steak", "duck", "frying steak" ],
   "Sausage":           [ "sausage", "chipolata" ],
   "Sliced meats":      [ "ham", "bacon" ],
   "Cooked meats":      [ "prosciutto", "pancetta", "chorizo" ],
