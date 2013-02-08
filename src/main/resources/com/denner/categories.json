@@ -1,8 +1,8 @@
 {
-  "Cooking":           [ "olive oil", "sunflower oil", "vegetable oil", "beef stock", "chicken stock", "vegetable stock" ],
+  "Cooking":           [ "olive oil", "sunflower oil", "vegetable oil", "beef stock", "chicken stock", "vegetable stock", "fish stock" ],
   "Condiments":        [ "redcurrant jelly", "salt", "black pepper", "black peppercorn", "vinegar" ],
   "Table sauces":      [ "tomato sauce", "brown sauce", "mustard" ],
-  "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder", "chilli flakes", "cayenne pepper", "sweet paprika", "chives", "all spice" ],
+  "Herbs & spices":    [ "mixed spice", "ground cinnamon", "ground cloves", "ground nutmeg", "ground coriander", "cumin", "sesame seeds", "chilli powder", "chilli flakes", "cayenne pepper", "sweet paprika", "chives", "all spice", "whole nutmeg", "whole cloves", "harissa", "capers" ],
   "Fresh herbs":       [ "parsley", "coriander", "thyme", "mint", "sage", "rosemary", "chilli", "tarragon", "basil", "dill", "bay", "oregano" ],
 
   "Jams":              [ "honey", "jam", "maple syrup" ],
@@ -19,7 +19,7 @@
   "Fruit juice":       [ "orange juice", "apple juice", "fruit juice", "pomegranate juice" ],
 
   "Fruit":             [ "orange", "lemon", "lime", "apple", "pear", "grapes", "banana", "clementine", "pineapple", "tangerine", "pomegranate" ],
-  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda", "golden syrup", "treacle", "dried cranberries", "corn flour" ],
+  "Baking":            [ "flour", "sugar", "vanilla extract", "baking powder", "mixed dried fruit", "yeast", "cocoa powder", "marzipan", "bicarbonate of soda", "golden syrup", "treacle", "dried cranberries", "corn flour", "pizza base mix", "bread mix" ],
   "Alcohol":           [ "brandy", "sherry", "whisky", "rum", "vodka", "wine", "guinness", "cider", "champagne" ],
   "Nuts":              [ "almonds", "walnuts", "peanuts", "hazelnuts", "pistachios", "poppy seeds", "pine nuts", "coconut", "mixed nuts" ],
   "Pasta":             [ "penne", "spaghetti", "lasagne sheets", "tagliatelle", "macaroni" ],
@@ -29,15 +29,16 @@
   "Table sauces":      [ "ketchup", "brown sauce", "worcestershire sauce" ],
 
   "Vegetables":        [ "shallot", "onion", "potato", "swede", "carrot", "courgette", "broccoli", "leek", "brussel sprouts", "parsnips", "beetroot", "avocado", "spinach", "aubergine", "butternut squash", "green beans", "cabbage" ],
-  "Canned vegatables": [ "black beans", "sweetcorn", "kidney beans", "chopped tomatoes", "pineapple chunks" ],
+  "Canned vegatables": [ "black beans", "sweetcorn", "kidney beans", "chopped tomatoes", "pineapple chunks", "chickpeas" ],
+  "Canned fish":       [ "can tuna" ],
   "Flavours":          [ "ginger", "garlic" ],
-  "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad" ],
+  "Salad":             [ "lettuce", "celery", "tomatoes", "mushrooms", "salad", "rocket" ],
   "Salad":             [ "green pepper", "red pepper", "yellow pepper", "peppers", "green beans" ],
 
   "Meat":              [ "lamb", "beef", "chicken", "turkey", "pate", "sausage", "pork", "venison", "minute steak", "duck" ],
   "Sausage":           [ "sausage", "chipolata" ],
   "Sliced meats":      [ "ham", "bacon" ],
-  "Cooked meats":      [ "prosciutto", "pancetta" ],
+  "Cooked meats":      [ "prosciutto", "pancetta", "chorizo" ],
   "Fish":              [ "cod", "haddock", "prawns", "salmon", "anchovy", "anchovies" ],
 
   "Tea & coffee":      [ "tea", "coffee", "cocoa powder", "drinking chocolate" ],
@@ -47,7 +48,7 @@
 
   "Cleaning":          [ "toilet roll", "washing up liquid", "toilet cleaner", "bleach", "glass cleaning spray", "washing up sponge" ],
   "Cat":               [ "cat food", "cat litter" ],
-  "Home":              [ "knife", "fork", "basin", "kettle", "frying pan" ],
+  "Home":              [ "knife", "fork", "basin", "kettle", "frying pan", "lightbulb" ],
 
   "Pharmacy":          [ "carex", "condoms", "omega", "tissues", "toothpaste", "deodourant", "shower gel" ],
 
